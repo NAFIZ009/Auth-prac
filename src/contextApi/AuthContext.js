@@ -7,7 +7,7 @@ const auth=getAuth(app);
 
 const AuthContext = ({children}) => {
     const [user,setUser]=useState({});
-
+    const [loading,setLoading] = useState(true);
     const register=(email,password)=>{
         return createUserWithEmailAndPassword(auth,email,password);
     };
@@ -28,14 +28,13 @@ const AuthContext = ({children}) => {
 
     useEffect(()=>{
         onAuthStateChanged(auth,userInfo=>{
-            // const users=userInfo.user||{};
             setUser(userInfo);
+            setLoading(false);
         })
     },[])
 
-    console.log(user);
 
-    const data={user,setUser,register,login,setName,logOut};
+    const data={user,setUser,register,login,setName,logOut,loading};
 
     return (
         <UserDataContext.Provider value={data}>

@@ -23,7 +23,7 @@ const Header = () => {
             {
                 user?<button onClick={handle} className='btn btn-outline btn-xs'>LogOut</button>:<button onClick={logIn} className='btn btn-outline btn-xs'>LogIn</button>
             }
-                  
+            <Link className='btn btn-outline' to='/orders'>orders</Link>
         </div>
     );
 };

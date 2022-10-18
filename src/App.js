@@ -3,6 +3,7 @@ import './App.css';
 import Layout from './components/Layout/Layout';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import PrivetRouter from './PrivetRouter';
 function App() {
   const router=createBrowserRouter([
       {
@@ -16,6 +17,10 @@ function App() {
           {
             path:'/login',
             element:<Login/>
+          },
+          {
+            path:'/orders',
+            element:<PrivetRouter><div>this is order</div></PrivetRouter>
           }
         ]
       }
